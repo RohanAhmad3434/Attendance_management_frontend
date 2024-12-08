@@ -25,7 +25,7 @@ function fetchStudents() {
              const studentDropdown = document.querySelector("#enrollStudent");
              studentDropdown.innerHTML = `<option value="">Select Student</option>`; // Reset options
             data.forEach(user => {
-                if (user.role === "Student") { // Only display users with role 'Student'
+                if (user.role === "Student") { // Only display users with role 'Student':
                     const row = document.createElement("tr");
                     row.innerHTML = `
                         <td>${user.username}</td>
