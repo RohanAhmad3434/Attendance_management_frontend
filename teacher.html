@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <style>
+        .student-actions {
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+        }
+    </style>
+    <link rel="stylesheet" href="teacher.css">
+    
+</head>
+<body>
+    <h1>Teacher Dashboard</h1>
+
+    <h2>Assigned Courses</h2>
+    <select id="courseSelect">
+        <option value="">Select a course</option>
+    </select>
+    <button id="loadStudents">Load Students</button>
+
+    <h2>Mark Attendance</h2>
+    <div id="studentList">
+        <!-- Student list will be populated here -->
+    </div>
+
+    <button id="markAttendance" style="display: none;">Mark Attendance</button>
+
+    <script src="teacher.js"></script>
+</body>
+</html>

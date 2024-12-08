@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="student_management.css">
+</head>
+<body>
+    <h1>Student Management</h1>
+
+    <!-- Add Student Form -->
+    <h2>Add Student</h2>
+    <form id="addStudentForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="hidden" id="role" value="Student"> <!-- Default role is Student -->
+        <button type="submit">Add Student</button>
+    </form>
+
+    <hr>
+
+    <!-- List of Students -->
+    <h2>Student List</h2>
+    <table id="studentList">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Students will be populated here -->
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Enroll Student in Course -->
+    <h2>Enroll Student in Course</h2>
+    <h3>Enrollments:</h3>
+    <ul id="enrollmentList">
+        <!-- Enrollments will be populated here -->
+    </ul>
+    <select id="enrollStudent">
+        <option value="">Select Student</option>
+        <!-- Student options will be populated here -->
+    </select>
+    <select id="enrollCourse">
+        <option value="">Select Course</option>
+        <!-- Course options will be populated here -->
+    </select>
+    <button id="enrollButton">Enroll</button>
+
+    <hr>
+
+    <script src="student_management.js"></script>
+</body>
+</html>

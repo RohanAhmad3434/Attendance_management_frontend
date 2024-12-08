@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Student Dashboard</h1>
+    <button id="logout">Logout</button>
+    
+    <h2>Your Attendance Records</h2>
+    <table id="attendance-table">
+      <thead>
+        <tr>
+          <th>Course ID</th>
+          <th>Course Name</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Attendance records will be dynamically loaded -->
+      </tbody>
+    </table>
+
+    <h2>Check Running Attendance</h2>
+    <select id="courseSelect">
+      <option value="" disabled selected>Select a course</option>
+      <!-- Courses will be dynamically loaded -->
+    </select>
+    <button id="checkAttendance">Check Attendance</button>
+    <p id="runningAttendance"></p>
+  </div>
+
+  <script src="student.js"></script>
+</body>
+</html>

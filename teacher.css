@@ -1,0 +1,121 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4a4a8c;
+}
+
+/* Container for content */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown (Course Select) */
+#courseSelect {
+    width: 60%;
+    padding: 10px;
+    margin: 10px auto 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4a4a8c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #37376c;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Student List */
+#studentList {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.student-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.student-actions button {
+    width: 45%;
+}
+
+/* Header and Section Styles */
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Align elements properly */
+#markAttendance {
+    width: 60%;
+    margin: 20px auto;
+}
+
+#loadStudents {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #courseSelect,
+    button {
+        width: 90%;
+    }
+
+    .student-actions {
+        flex-direction: column;
+    }
+
+    .student-actions button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

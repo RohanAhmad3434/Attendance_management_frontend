@@ -1,0 +1,60 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 32px;
+    color: #4a4a8c;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Dashboard Buttons */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dashboard button {
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4a4a8c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard button:hover {
+    background-color: #37376c;
+    transform: translateY(-2px);
+}
+
+.dashboard button:active {
+    transform: translateY(0);
+    background-color: #2d2d5a;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .dashboard button {
+        width: 80%;
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}

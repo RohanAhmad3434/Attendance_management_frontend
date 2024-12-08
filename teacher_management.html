@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Management</title>
+    <link rel="stylesheet" href="teacher_management.css">
+</head>
+<body>
+    <h1>Teacher Management</h1>
+
+    <!-- Add Teacher Form -->
+    <h2>Add Teacher</h2>
+    <form id="addTeacherForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="hidden" id="role" value="Teacher"> <!-- Default role is Teacher -->
+        <button type="submit">Add Teacher</button>
+    </form>
+
+    <hr>
+
+    <!-- List of Teachers -->
+    <h2>Teacher List</h2>
+    <table id="teacherList">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Teachers will be populated here -->
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Courses Table -->
+    <h2>Course List</h2>
+    <table id="courseList">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Teachers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Course List will be populated here -->
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Assign Teacher to Course -->
+    <h2>Assign Teacher to Course</h2>
+    <select id="assignTeacher">
+        <option value="">Select Teacher</option>
+        <!-- Teacher options will be populated here -->
+    </select>
+    <select id="assignCourse">
+        <option value="">Select Course</option>
+        <!-- Course options will be populated here -->
+    </select>
+    <button id="assignTeacherButton">Assign Teacher</button>
+
+    <script src="teacher_management.js"></script>
+</body>
+</html>

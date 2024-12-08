@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <h1>Attendance Management System - Admin Panel</h1>
+
+    <div class="dashboard">
+        <button onclick="navigateTo('student_management.html')">Student Management</button>
+        <button onclick="navigateTo('teacher_management.html')">Teacher Management</button>
+        <button onclick="navigateTo('course_management.html')">Course Management</button>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
