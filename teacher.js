@@ -30,7 +30,6 @@ function fetchCourses() {
 }
 
 // Load students enrolled in the selected course whose attendance has not been marked today
-// Load students enrolled in the selected course whose attendance has not been marked today
 function loadStudents() {
     const courseId = document.getElementById("courseSelect").value;
   
