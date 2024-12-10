@@ -15,10 +15,17 @@
         <button onclick="navigateTo('course_management.html')">Course Management</button>
     </div>
 
+    <button id="logout">Logout</button>
+
     <script>
         function navigateTo(page) {
             window.location.href = page;
         }
+         //Logout button logic
+ document.getElementById("logout").addEventListener("click", () => {
+    localStorage.removeItem("userId");
+    window.location.href = "index.html";
+});
     </script>
 </body>
 </html>

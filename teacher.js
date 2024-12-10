@@ -107,26 +107,26 @@ function loadStudents() {
 // Mark attendance for students
 function markAttendance() {
     const courseId = document.getElementById("courseSelect").value;
-  
+
     if (!courseId) {
         alert("Please select a course.");
         return;
     }
-  
+
     const students = document.querySelectorAll("#studentList .student");
-  
+
     if (students.length === 0) {
         alert("No students available for marking attendance.");
         return;
     }
-  
+
     const attendanceData = Array.from(students).map(student => ({
         teacherId: parseInt(teacherId),
         courseId: parseInt(courseId),
         studentId: parseInt(student.dataset.studentId),
         status: student.dataset.status || "Absent", // Default to "Absent" if not marked
     }));
-  
+
     fetch(`${apiBase}/markAttendance`, {
         method: "POST",
         headers: {
@@ -134,20 +134,59 @@ function markAttendance() {
         },
         body: JSON.stringify(attendanceData),
     })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message || "Attendance marked successfully.");
-    })
-    .catch(error => {
-        console.error("Error marking attendance:", error);
-        alert("Could not mark attendance. Please try again.");
-    });
-  }
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message || "Attendance marked successfully.");
+            fetchAttendanceRecords(); // Update the attendance record table
+            loadStudents();
+        })
+        .catch(error => {
+            console.error("Error marking attendance:", error);
+            alert("Could not mark attendance. Please try again.");
+        });
+}
   
+
+// Fetch attendance records for the teacher
+function fetchAttendanceRecords() {
+    const url = `${apiBase}/attendanceRecords/${teacherId}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(records => {
+            const recordTableBody = document.getElementById("attendanceRecordTableBody");
+            recordTableBody.innerHTML = ""; // Clear previous records
+
+            records.forEach(record => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${record.teacherName}</td>
+                    <td>${record.studentName}</td>
+                    <td>${record.courseName}</td>
+                    <td>${record.date}</td>
+                    <td>${record.status}</td>
+                `;
+                recordTableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching attendance records:", error);
+            alert("Could not load attendance records.");
+        });
+}
+
+
 
 // Event listeners
 document.getElementById("loadStudents").addEventListener("click", loadStudents);
 document.getElementById("markAttendance").addEventListener("click", markAttendance);
 
+
+ //Logout button logic
+ document.getElementById("logout").addEventListener("click", () => {
+    localStorage.removeItem("userId");
+    window.location.href = "index.html";
+});
+
 // Initial fetch of courses
 fetchCourses();
+fetchAttendanceRecords();

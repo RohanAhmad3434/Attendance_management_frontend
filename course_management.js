@@ -18,7 +18,7 @@ function populateCourseTable(courses) {
         row.innerHTML = `
             <td>${course.id}</td>
             <td>${course.name}</td>
-            <td>${course.teacherId || "None"}</td>
+            <td>${course.teacherName}</td> <!-- Display teacher name instead of ID -->
             <td>
                 <button onclick="deleteCourse(${course.id})">Delete</button>
             </td>
@@ -27,13 +27,14 @@ function populateCourseTable(courses) {
     });
 }
 
+
 // Add a course
 document.querySelector("#addCourseForm").addEventListener("submit", function (event) {
     event.preventDefault();
     const courseName = document.querySelector("#courseName").value;
-    const teacherId = document.querySelector("#teacherId").value || null;
+    const teacherName = document.querySelector("#teacherName").value || null;
 
-    const courseData = { name: courseName, teacherId: teacherId ? parseInt(teacherId) : null };
+    const courseData = { name: courseName, teacherName };
 
     fetch(`${apiBase}/courses`, {
         method: "POST",
@@ -57,12 +58,18 @@ document.querySelector("#addCourseForm").addEventListener("submit", function (ev
 // Update a course
 document.querySelector("#updateCourseForm").addEventListener("submit", function (event) {
     event.preventDefault();
-    const courseId = document.querySelector("#updateCourseId").value;
-    const courseName = document.querySelector("#updateCourseName").value;
-    const teacherId = document.querySelector("#updateTeacherId").value || null;
 
-    const courseData = { name: courseName, teacherId: teacherId ? parseInt(teacherId) : null };
+    const courseId = document.querySelector("#updateCourseId").value; // Course ID
+    const courseName = document.querySelector("#updateCourseName").value; // Course Name
+    const teacherName = document.querySelector("#updateTeacherName").value || null; // Teacher Name
 
+    // Prepare the data object for the API
+    const courseData = {
+        name: courseName,
+        teacherName: teacherName ? teacherName.trim() : null, // Send teacherName instead of teacherId
+    };
+
+    // Make the PUT request to update the course
     fetch(`${apiBase}/courses/${courseId}`, {
         method: "PUT",
         headers: {
@@ -70,16 +77,22 @@ document.querySelector("#updateCourseForm").addEventListener("submit", function 
         },
         body: JSON.stringify(courseData),
     })
-        .then(response => {
+        .then((response) => {
             if (response.ok) {
                 alert("Course updated successfully!");
-                fetchCourses();
+                fetchCourses(); // Refresh the list of courses
             } else {
-                alert("Failed to update course.");
+                response.text().then((errorMessage) => {
+                    alert(`Failed to update course: ${errorMessage}`);
+                });
             }
         })
-        .catch(error => console.error("Error updating course:", error));
+        .catch((error) => {
+            console.error("Error updating course:", error);
+            alert("An unexpected error occurred. Please try again.");
+        });
 });
+
 
 // Delete a course
 function deleteCourse(courseId) {

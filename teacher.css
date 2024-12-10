@@ -119,3 +119,69 @@ h2 {
         margin-bottom: 10px;
     }
 }
+
+
+#logout {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logout:hover {
+    background-color: #0056b3;
+}
+
+
+/* General styling for the table */
+/* Style for the table container */
+#attendanceRecordTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header row styling */
+#attendanceRecordTable thead tr {
+    background-color: #007BFF; /* Light blue background */
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Table headers */
+#attendanceRecordTable th, #attendanceRecordTable td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+
+/* Row styling */
+#attendanceRecordTable tbody tr {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#attendanceRecordTable tbody tr:hover {
+    background-color: #f1f1f1; /* Slightly darker background on hover */
+}
+
+/* Status column styling */
+#attendanceRecordTable tbody td:last-child {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Alternating row colors */
+#attendanceRecordTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

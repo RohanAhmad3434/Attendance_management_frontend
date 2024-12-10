@@ -130,6 +130,7 @@ td button {
     cursor: pointer;
     font-size: 12px;
     transition: background-color 0.3s ease;
+    margin: 0 10px;
 }
 
 td button:hover {
