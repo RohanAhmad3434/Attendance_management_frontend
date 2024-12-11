@@ -59,7 +59,7 @@ function fetchTeachers() {
 
 // Fetch and display courses
 function fetchCourses() {
-    fetch(`${apiBase}/courses`)
+    fetch(`${apiBase}/courses_database`)
         .then(response => response.json())
         .then(data => {
             const courseTableBody = document.querySelector("#courseList tbody");
