@@ -41,32 +41,67 @@ h2 {
     background-color: #e64a19;
 }
 
-/* Table styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background-color: white;
+
+/* General styling for the Attendance Records section */
+#attendance-records-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
+/* Styling for each attendance group (by date) */
+.attendance-group {
+    background-color: #fff;
     border: 1px solid #ddd;
-    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* Header for each date group */
+.attendance-group h3 {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-bottom: 10px;
     text-align: left;
 }
 
-table th {
+/* Table styling */
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.attendance-table th {
     background-color: #4CAF50;
-    color: white;
-    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+.attendance-table tr:nth-child(even) {
+    background-color: #f4f4f4;
 }
 
-table tr:hover {
-    background-color: #ddd;
+.attendance-table tr:hover {
+    background-color: #eef4ff;
+    transition: background-color 0.3s ease;
+}
+
+.attendance-table td {
+    color: #333;
 }
 
 /* Dropdown styling */

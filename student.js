@@ -1,8 +1,45 @@
 const apiBase = "http://localhost:8080/api/student"; // Update this URL as needed
 
 // Fetch and display the attendance records for the logged-in student
+// function loadAttendanceRecords(studentId) {
+//     const url = `${apiBase}/attendance/${studentId}`;
+//     fetch(url)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error("Unable to fetch attendance records.");
+//             }
+//             return response.json();
+//         })
+//         .then(attendanceRecords => {
+//             const tableBody = document.querySelector("#attendance-table tbody");
+//             tableBody.innerHTML = ""; // Clear previous data
+
+//             if (attendanceRecords === "No attendance records found for this student.") {
+//                 tableBody.innerHTML = `<tr><td colspan="4">${attendanceRecords}</td></tr>`;
+//                 return;
+//             }
+
+//             attendanceRecords.forEach(record => {
+//                 const row = document.createElement("tr");
+//                 row.innerHTML = `
+//                     <td>${record.course.id}</td>
+//                     <td>${record.course.name}</td>
+//                     <td>${record.date}</td>
+//                     <td>${record.status}</td>
+//                 `;
+//                 tableBody.appendChild(row);
+//             });
+//         })
+//         .catch(error => {
+//             console.error("Error loading attendance records:", error);
+//         });
+// }
+
+// Fetch courses for the student to select for checking running attendance
+
+
 function loadAttendanceRecords(studentId) {
-    const url = `${apiBase}/attendance/${studentId}`;
+    const url = `${apiBase}/attendanceGroupedByDate/${studentId}`;
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -10,32 +47,67 @@ function loadAttendanceRecords(studentId) {
             }
             return response.json();
         })
-        .then(attendanceRecords => {
-            const tableBody = document.querySelector("#attendance-table tbody");
-            tableBody.innerHTML = ""; // Clear previous data
+        .then(attendanceGroupedByDate => {
+            const recordsContainer = document.getElementById("attendance-records-container");
+            recordsContainer.innerHTML = ""; // Clear previous data
 
-            if (attendanceRecords === "No attendance records found for this student.") {
-                tableBody.innerHTML = `<tr><td colspan="4">${attendanceRecords}</td></tr>`;
+            // Check if there are no attendance records
+            if (attendanceGroupedByDate === "No attendance records found for this student.") {
+                recordsContainer.innerHTML = `<p>${attendanceGroupedByDate}</p>`;
                 return;
             }
 
-            attendanceRecords.forEach(record => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${record.course.id}</td>
-                    <td>${record.course.name}</td>
-                    <td>${record.date}</td>
-                    <td>${record.status}</td>
+            // Iterate over each grouped date
+            for (const [date, records] of Object.entries(attendanceGroupedByDate)) {
+                // Create a new section for each date
+                const dateSection = document.createElement("section");
+                dateSection.className = "attendance-group";
+
+                // Date Header
+                const dateHeader = document.createElement("h3");
+                dateHeader.textContent = `Attendance for  :  ${date}`;
+                dateSection.appendChild(dateHeader);
+
+                // Create a table for each date
+                const table = document.createElement("table");
+                table.className = "attendance-table";
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>Course Name</th>
+                            <th>Teacher Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
                 `;
-                tableBody.appendChild(row);
-            });
+                const tbody = table.querySelector("tbody");
+
+                // Add rows for each record in the date group
+                records.forEach(record => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${record.courseName}</td>
+                        <td>${record.teacherName}</td>
+                        <td>${record.status}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                // Append the table to the section
+                dateSection.appendChild(table);
+                recordsContainer.appendChild(dateSection);
+            }
         })
         .catch(error => {
             console.error("Error loading attendance records:", error);
         });
 }
 
-// Fetch courses for the student to select for checking running attendance
+
+
+
 function loadCoursesForStudent(studentId) {
     const url = `${apiBase}/attendance/${studentId}`; // Using attendance endpoint to infer courses
     fetch(url)
