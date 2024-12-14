@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+/* Attendance Container */
+#attendanceContainer {
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Date Container */
+.date-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.date-container h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.date-container p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Attendance Summary Styling */
+.attendance-summary {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.attendance-summary strong {
+    color:black;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.total-present {
+    color: green;
+    font-size: 20px;
+}
+
+.total-absent {
+    color: red;
+    font-size: 20px;
+}
+
+
+
+
+/* Course Container */
+.course-container h4 {
+    margin: 10px 0;
+    color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
