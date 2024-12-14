@@ -22,6 +22,18 @@ function fetchCourses() {
               option.textContent = `${course.courseName} (ID: ${course.courseId})`; // Show both name and ID
               courseSelect.appendChild(option);
           });
+
+             // Add event listener to refresh student list based on selected course
+             courseSelect.addEventListener("change", () => {
+                const selectedValue = courseSelect.value;
+                if (selectedValue === "") {
+                    // Clear student list if "Select a course" is chosen
+                    document.getElementById("studentList").innerHTML = "";
+                } else {
+                    // Refresh student list for the selected course
+                   // loadStudents();
+                }
+            });
       })
       .catch(error => {
           console.error("Error fetching courses:", error);
@@ -35,6 +47,7 @@ function loadStudents() {
   
     if (!courseId) {
         alert("Please select a course.");
+        studentList.innerHTML = "";
         return;
     }
   
@@ -114,6 +127,15 @@ function markAttendance() {
         return;
     }
 
+     // Show confirmation alert
+     const confirmMarking = confirm("Are you sure you want to mark attendance?");
+     if (!confirmMarking) {
+         // Clear course selection and student list if "Cancel" is clicked
+         document.getElementById("courseSelect").value = "";
+         document.getElementById("studentList").innerHTML = "";
+         return;
+     }
+
     const attendanceData = Array.from(students).map(student => ({
         teacherId: parseInt(teacherId),
         courseId: parseInt(courseId),
@@ -131,8 +153,6 @@ function markAttendance() {
         .then(response => response.json())
         .then(data => {
             alert(data.message || "Attendance marked successfully.");
-          //  fetchAttendanceRecords(); // Update the attendance record table
-          fetchAttendanceGroupedByDate();
             loadStudents();
         })
         .catch(error => {
@@ -141,101 +161,6 @@ function markAttendance() {
         });
 }
   
-
-// Fetch attendance records for the teacher
-// function fetchAttendanceRecords() {
-//     const url = `${apiBase}/attendanceRecords/${teacherId}`;
-//     fetch(url)
-//         .then(response => response.json())
-//         .then(records => {
-//             const recordTableBody = document.getElementById("attendanceRecordTableBody");
-//             recordTableBody.innerHTML = ""; // Clear previous records
-
-//             records.forEach(record => {
-//                 const row = document.createElement("tr");
-//                 row.innerHTML = `
-//                     <td>${record.teacherName}</td>
-//                     <td>${record.studentName}</td>
-//                     <td>${record.courseName}</td>
-//                     <td>${record.date}</td>
-//                     <td>${record.status}</td>
-//                 `;
-//                 recordTableBody.appendChild(row);
-//             });
-//         })
-//         .catch(error => {
-//             console.error("Error fetching attendance records:", error);
-//             alert("Could not load attendance records.");
-//         });
-// }
-
-
-
-
-// Fetch attendance records grouped by date for the teacher
-
-function fetchAttendanceGroupedByDate() {
-    const url = `${apiBase}/attendanceGroupedByDate/${teacherId}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(groupedRecords => {
-            const groupedRecordsDiv = document.getElementById("attendanceGroupedRecords");
-            groupedRecordsDiv.innerHTML = ""; // Clear previous records
-
-            // Loop through each date in the response
-            for (const [date, records] of Object.entries(groupedRecords)) {
-                const dateSection = document.createElement("div");
-                dateSection.className = "date-group";
-
-                // Date header
-                const dateHeader = document.createElement("h3");
-                dateHeader.textContent = `Date: ${date}`;
-                dateSection.appendChild(dateHeader);
-
-                // Table for records on that date
-                const table = document.createElement("table");
-                table.innerHTML = `
-                    <thead>
-                        <tr>
-                            <th>Teacher Name</th>
-                            <th>Student Name</th>
-                            <th>Course Name</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                `;
-                const tbody = table.querySelector("tbody");
-
-                // Add rows for each record
-                records.forEach(record => {
-                    const row = document.createElement("tr");
-
-                    // Assign 'present' or 'absent' class based on record.status
-                    const statusClass = record.status.toLowerCase() === 'present' ? 'present' : 'absent';
-                    row.innerHTML = `
-                        <td>${record.teacherName}</td>
-                        <td>${record.studentName}</td>
-                        <td>${record.courseName}</td>
-                        <td class="${statusClass}">${record.status}</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-
-                dateSection.appendChild(table);
-                groupedRecordsDiv.appendChild(dateSection);
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching grouped attendance records:", error);
-            alert("Could not load grouped attendance records.");
-        });
-}
-
-
-
-// Event listeners
 document.getElementById("loadStudents").addEventListener("click", loadStudents);
 document.getElementById("markAttendance").addEventListener("click", markAttendance);
 
@@ -246,7 +171,12 @@ document.getElementById("markAttendance").addEventListener("click", markAttendan
     window.location.href = "index.html";
 });
 
+
+// Event listener for "View Attendance Records" button
+document.getElementById("viewAttendanceRecords").addEventListener("click", () => {
+    window.location.href = "view_attendance_teacher.html";
+});
+
+
 // Initial fetch of courses
 fetchCourses();
-// fetchAttendanceRecords();
-fetchAttendanceGroupedByDate();
