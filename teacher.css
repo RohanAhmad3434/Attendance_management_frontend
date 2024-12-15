@@ -1,4 +1,4 @@
-/* General Page Styles */
+/* General Page Styles
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,17 +14,17 @@ h1, h2 {
 }
 
 /* Container for content */
-.container {
+/* .container {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Dropdown (Course Select) */
-#courseSelect {
+/* #courseSelect {
     width: 60%;
     padding: 10px;
     margin: 10px auto 20px auto;
@@ -32,10 +32,10 @@ h1, h2 {
     border-radius: 5px;
     font-size: 16px;
     display: block;
-}
+} */
 
 /* Buttons */
-button {
+/* button {
     padding: 10px 15px;
     font-size: 16px;
     color: #fff;
@@ -46,27 +46,27 @@ button {
     margin: 10px auto;
     display: block;
     transition: background-color 0.3s ease;
-}
+} */
 
-button:hover {
+/* button:hover {
     background-color: #37376c;
 }
 
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-}
+} */
 
 /* Student List */
-#studentList {
+/* #studentList {
     margin: 20px 0;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
-}
+} */
 
-.student-actions {
+/* .student-actions {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -74,10 +74,10 @@ button:disabled {
 
 .student-actions button {
     width: 45%;
-}
+} */
 
 /* Header and Section Styles */
-h1 {
+/* h1 {
     font-size: 32px;
     margin-bottom: 10px;
     font-weight:bolder
@@ -91,7 +91,170 @@ h2 {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
+} */
+
+/* Align elements properly */
+/* #markAttendance {
+    width: 60%;
+    margin: 20px auto;
 }
+
+#loadStudents {
+    display: block;
+    margin: 0 auto;
+} */
+
+/* Responsive Design */
+/* @media (max-width: 600px) {
+    #courseSelect,
+    button {
+        width: 90%;
+    }
+
+    .student-actions {
+        flex-direction: column;
+    }
+
+    .student-actions button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+} */
+
+/* 
+#logout {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logout:hover {
+    background-color: #0056b3;
+} */ 
+
+
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Light grayish white */
+    color: #333; /* Neutral dark gray */
+    line-height: 1.6;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4a4a8c; /* Bright blue for headers */
+}
+
+/* Container for content */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff; /* Pure white for content */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown (Course Select) */
+#courseSelect {
+    width: 60%;
+    padding: 10px;
+    margin: 10px auto 20px auto;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    display: block;
+    background-color: #ffffff;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff; /* White text for contrast */
+    background-color: #4a67d2; /* Soft coral for buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #234bdb; /* Slightly darker coral on hover */
+    transform: scale(1.05); /* Add a slight zoom */
+}
+
+button:active {
+    background-color: #032ec9; /* Even darker coral on click */
+    transform: scale(0.95); /* Shrink on click */
+}
+
+button:disabled {
+    background-color: #cccccc; /* Light gray for disabled */
+    cursor: not-allowed;
+}
+
+/* Student List */
+#studentList {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Logout Button */
+#logout {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF; /* Bright blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#logout:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.05); /* Zoom effect */
+}
+
+#logout:active {
+    background-color: #003d80; /* Even darker blue */
+    transform: scale(0.95); /* Shrink effect */
+}
+
+/* Header and Section Styles */
+ h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 50px;
+    border-bottom: 2px solid #007BFF; 
+    padding-bottom: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+} 
 
 /* Align elements properly */
 #markAttendance {
@@ -119,22 +282,4 @@ h2 {
         width: 100%;
         margin-bottom: 10px;
     }
-}
-
-
-#logout {
-    display: block;
-    margin: 0 auto 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#logout:hover {
-    background-color: #0056b3;
 }

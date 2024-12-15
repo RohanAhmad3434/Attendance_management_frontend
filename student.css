@@ -1,154 +1,127 @@
 /* General container styling */
 .container {
     width: 80%;
+    max-width: 600px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #333;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Align content centrally */
 }
 
 /* Heading styles */
 h1 {
-    text-align: center;
     margin-bottom: 20px;
-    color: #4CAF50;
-}
-
-h2 {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-/* Logout button */
-#logout {
-    display: block;
-    margin: 0 auto 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #ff5722;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#logout:hover {
-    background-color: #e64a19;
-}
-
-
-/* General styling for the Attendance Records section */
-#attendance-records-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling for each attendance group (by date) */
-.attendance-group {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-}
-
-/* Header for each date group */
-.attendance-group h3 {
-    font-size: 1.4em;
-    color: #007bff;
-    margin-bottom: 10px;
-    text-align: left;
-}
-
-/* Table styling */
-.attendance-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95em;
-}
-
-.attendance-table th,
-.attendance-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.attendance-table th {
-    background-color: #4CAF50;
-    color: #fff;
+    font-size: 1.8em;
+    color: #0056b3; /* Deep blue color */
     font-weight: bold;
 }
 
-.attendance-table tr:nth-child(even) {
-    background-color: #f4f4f4;
-}
-
-.attendance-table tr:hover {
-    background-color: #eef4ff;
-    transition: background-color 0.3s ease;
-}
-
-.attendance-table td {
+h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
     color: #333;
+}
+
+/* Logout button styling */
+#logout {
+    display: inline-block; /* Inline for precise alignment */
+    margin: 15px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #d9534f; /* Soft red for logout */
+    border: none;
+    border-radius: 5px; /* Lightly rounded corners */
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#logout:hover {
+    background-color: #c9302c;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+#logout:active {
+    background-color: #a94442;
+    transform: scale(0.95); /* Slight shrink effect on click */
 }
 
 /* Dropdown styling */
 #courseSelect {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px; /* Moderate width */
     padding: 10px;
-    margin: 10px 0;
+    margin: 15px auto;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: white;
+    background-color: #fff;
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    display: inline-block;
 }
 
 #courseSelect:focus {
-    border-color: #4CAF50;
+    border-color: #0056b3; /* Matches heading color */
     outline: none;
 }
 
 /* Buttons styling */
 button {
+    display: inline-block; /* Inline for alignment */
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 16px;
+    font-weight: bold;
     color: white;
-    background-color: #4CAF50;
+    background-color: #5cb85c; /* Soft green for action buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #4cae4c;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+button:active {
+    background-color: #3e8e41;
+    transform: scale(0.95); /* Slight shrink effect on click */
 }
 
 /* Paragraph styling for running attendance result */
 #runningAttendance {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #333;
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #444;
     font-weight: bold;
 }
 
 /* Add spacing between sections */
 .container > * {
     margin-bottom: 20px;
+}
+
+/* Make the page responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
 }
