@@ -1,43 +1,5 @@
 const apiBase = "http://localhost:8080/api/student"; // Update this URL as needed
 
-// Fetch and display the attendance records for the logged-in student
-// function loadAttendanceRecords(studentId) {
-//     const url = `${apiBase}/attendance/${studentId}`;
-//     fetch(url)
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error("Unable to fetch attendance records.");
-//             }
-//             return response.json();
-//         })
-//         .then(attendanceRecords => {
-//             const tableBody = document.querySelector("#attendance-table tbody");
-//             tableBody.innerHTML = ""; // Clear previous data
-
-//             if (attendanceRecords === "No attendance records found for this student.") {
-//                 tableBody.innerHTML = `<tr><td colspan="4">${attendanceRecords}</td></tr>`;
-//                 return;
-//             }
-
-//             attendanceRecords.forEach(record => {
-//                 const row = document.createElement("tr");
-//                 row.innerHTML = `
-//                     <td>${record.course.id}</td>
-//                     <td>${record.course.name}</td>
-//                     <td>${record.date}</td>
-//                     <td>${record.status}</td>
-//                 `;
-//                 tableBody.appendChild(row);
-//             });
-//         })
-//         .catch(error => {
-//             console.error("Error loading attendance records:", error);
-//         });
-// }
-
-// Fetch courses for the student to select for checking running attendance
-
-
 function loadAttendanceRecords(studentId) {
     const url = `${apiBase}/attendanceGroupedByDate/${studentId}`;
     fetch(url)

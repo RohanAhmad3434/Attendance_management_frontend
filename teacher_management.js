@@ -218,3 +218,8 @@ document.querySelector("#assignTeacherButton").addEventListener("click", functio
         })
         .catch(error => console.error("Error assigning teacher to course:", error));
 });
+
+// Go back button logic
+document.getElementById("goBack").addEventListener("click", () => {
+    window.location.href = "admin.html";
+});

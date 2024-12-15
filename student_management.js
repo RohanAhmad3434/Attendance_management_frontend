@@ -249,3 +249,7 @@ function updateStudentDropdown(students) {
     });
 }
 
+// Go back button logic
+document.getElementById("goBack").addEventListener("click", () => {
+    window.location.href = "admin.html";
+});

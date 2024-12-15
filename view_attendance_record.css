@@ -9,7 +9,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #444;
+    color: #4a4a8c;
 }
 
 /* Attendance Container */
@@ -89,4 +89,23 @@ th {
 
 tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+
+
+/* Go Back button styling */
+button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5454e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color:#2c2c9f;
 }

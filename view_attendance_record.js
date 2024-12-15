@@ -88,6 +88,10 @@ function renderAttendanceData(data) {
     });
 }
 
+// Go back button logic
+document.getElementById("goBack").addEventListener("click", () => {
+    window.location.href = "admin.html";
+});
 
 // Fetch attendance data on page load
 document.addEventListener('DOMContentLoaded', fetchAttendanceData);

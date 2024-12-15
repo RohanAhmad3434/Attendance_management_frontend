@@ -132,3 +132,21 @@ td button:hover {
         padding: 8px;
     }
 }
+
+/* Go Back button styling */
+#goBack {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5454e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#goBack:hover {
+    background-color:#2c2c9f;
+}

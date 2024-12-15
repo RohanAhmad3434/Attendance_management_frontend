@@ -126,6 +126,10 @@ function deleteCourse(courseId) {
         });
 }
 
+// Go back button logic
+document.getElementById("goBack").addEventListener("click", () => {
+    window.location.href = "admin.html";
+});
 
 // Initial load of courses
 document.addEventListener("DOMContentLoaded", fetchCourses);
